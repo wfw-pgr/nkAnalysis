@@ -20,11 +20,11 @@ def extract__data_onPlain():
     # --- [2] settings axis                         --- #
     # ------------------------------------------------- #
     if   ( const["axis"].lower() == "x" ):
-        ref = 0
+        ref_ = 0
     elif ( const["axis"].lower() == "y" ):
-        ref = 1
+        ref_ = 1
     elif ( const["axis"].lower() == "z" ):
-        ref = 2
+        ref_ = 2
 
     # ------------------------------------------------- #
     # --- [3] data extraction                       --- #
