@@ -1,4 +1,6 @@
-import numpy as np
+import numpy                    as np
+import nkUtilities.plot1D       as pl1
+import nkUtilities.load__config as lcf
 
 # ========================================================= #
 # ===  display__radialplot_from2DGrid.py                === #
@@ -6,6 +8,8 @@ import numpy as np
 
 def display__radialplot_from2DGrid():
 
+    x_,y_,z_ = 0, 1, 2
+    
     # ------------------------------------------------- #
     # --- [1] load constants                        --- #
     # ------------------------------------------------- #
@@ -69,6 +73,20 @@ def display__radialplot_from2DGrid():
     
     import nkUtilities.save__pointFile as spf
     spf.save__pointFile( outFile=const["outFile"], Data=wData )
+
+    # ------------------------------------------------- #
+    # --- [6] draw plot                             --- #
+    # ------------------------------------------------- #
+    v_,r_   = 2, 3
+    config  = lcf.load__config()
+    config  = dict( config, **const )
+    
+    fig     = pl1.plot1D( config=config, pngFile=const["pngFile"] )
+    fig.add__plot( xAxis=wData[:,r_], yAxis=wData[:,v_] )
+    fig.set__axis()
+    fig.save__figure()
+
+
     
     return()
 
